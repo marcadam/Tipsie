@@ -13,7 +13,7 @@
 		49E482311C3EEAA60027A8D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E482301C3EEAA60027A8D4 /* Assets.xcassets */; };
 		49E482341C3EEAA60027A8D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E482321C3EEAA60027A8D4 /* LaunchScreen.storyboard */; };
 		49E4823C1C3EEFD60027A8D4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4823B1C3EEFD60027A8D4 /* SettingsViewController.swift */; };
-		49E4823E1C3F37AA0027A8D4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4823D1C3F37AA0027A8D4 /* Utils.swift */; };
+		49E4823E1C3F37AA0027A8D4 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4823D1C3F37AA0027A8D4 /* Tips.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		49E482331C3EEAA60027A8D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49E482351C3EEAA60027A8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49E4823B1C3EEFD60027A8D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		49E4823D1C3F37AA0027A8D4 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		49E4823D1C3F37AA0027A8D4 /* Tips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				49E4822B1C3EEAA60027A8D4 /* ViewController.swift */,
 				49E4823B1C3EEFD60027A8D4 /* SettingsViewController.swift */,
 				49E4822D1C3EEAA60027A8D4 /* Main.storyboard */,
-				49E4823D1C3F37AA0027A8D4 /* Utils.swift */,
+				49E4823D1C3F37AA0027A8D4 /* Tips.swift */,
 				49E482301C3EEAA60027A8D4 /* Assets.xcassets */,
 				49E482321C3EEAA60027A8D4 /* LaunchScreen.storyboard */,
 				49E482351C3EEAA60027A8D4 /* Info.plist */,
@@ -145,7 +145,7 @@
 				49E4822C1C3EEAA60027A8D4 /* ViewController.swift in Sources */,
 				49E4822A1C3EEAA60027A8D4 /* AppDelegate.swift in Sources */,
 				49E4823C1C3EEFD60027A8D4 /* SettingsViewController.swift in Sources */,
-				49E4823E1C3F37AA0027A8D4 /* Utils.swift in Sources */,
+				49E4823E1C3F37AA0027A8D4 /* Tips.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
