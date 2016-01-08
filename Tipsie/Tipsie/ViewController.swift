@@ -19,8 +19,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Set initial state
-        tipAmountLabel.text = "$0.00"
-        totalAmountLabel.text = "$0.00"
+        billAmountTextField.placeholder = getCurrencySymbol()
+        tipAmountLabel.text = formatCurrency(0.00)
+        totalAmountLabel.text = formatCurrency(0.00)
         Tips.setTipControlText(tipPercentSegmentedControl)
     }
 
@@ -45,9 +46,21 @@ class ViewController: UIViewController {
             let billAmount = (billAmountText as NSString).doubleValue
             let tipAmount = billAmount * tipPercent
             let totalAmount = billAmount + tipAmount
-            tipAmountLabel.text = String(format: "$%0.2f", arguments: [tipAmount])
-            totalAmountLabel.text = String(format: "$%0.2f", arguments: [totalAmount])
+            tipAmountLabel.text = formatCurrency(tipAmount)
+            totalAmountLabel.text = formatCurrency(totalAmount)
         }
+    }
+
+    private func getCurrencySymbol() -> String {
+        let local = NSLocale.currentLocale()
+        let currencySymbol = (local.objectForKey(NSLocaleCurrencySymbol) as! String)
+        return currencySymbol
+    }
+
+    private func formatCurrency(number: Double) -> String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        return formatter.stringFromNumber(number)!
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
