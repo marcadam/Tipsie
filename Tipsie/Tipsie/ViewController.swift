@@ -27,6 +27,9 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
+        billAmountTextField.becomeFirstResponder()
+
         if Tips.getDefaultTipIndexChanged() {
             tipPercentSegmentedControl.selectedSegmentIndex = Tips.getDefaultTipIndex()
             Tips.setDefaultTipIndexChanged(false)
