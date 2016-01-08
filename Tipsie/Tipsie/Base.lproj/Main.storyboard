@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tipsie-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tipsie" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,11 +128,11 @@
                             <outletCollection property="gestureRecognizers" destination="QSi-YC-WFb" appends="YES" id="Bou-XP-B4s"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="Sto-dU-Zd7">
+                    <navigationItem key="navigationItem" title="Tipsie" id="Sto-dU-Zd7">
                         <barButtonItem key="rightBarButtonItem" image="Settings" id="F3j-1T-U6Y">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="BKy-jh-w6V" kind="modal" id="MMs-lz-TF1"/>
+                                <segue destination="iyW-5z-eAy" kind="modal" id="dWp-4v-21n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -153,67 +153,113 @@
             </objects>
             <point key="canvasLocation" x="774" y="624"/>
         </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="Qr4-7m-OVx">
+        <!--Settings-->
+        <scene sceneID="SoV-gv-BrX">
             <objects>
-                <viewController id="B0F-jV-06h" customClass="SettingsViewController" customModule="Tipsie" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Lka-G2-2Ly"/>
-                        <viewControllerLayoutGuide type="bottom" id="91I-Fa-1kQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Jqf-2f-y9w">
+                <tableViewController id="8JS-X1-RKZ" customClass="SettingsTableViewController" customModule="Tipsie" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="KdD-gy-Znp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rMd-YE-nJX">
-                                <rect key="frame" x="20" y="124" width="280" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="u4x-iI-syv"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="%"/>
-                                    <segment title="%"/>
-                                    <segment title="%"/>
-                                </segments>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="onDefaultTipValueChanged:" destination="B0F-jV-06h" eventType="valueChanged" id="Lge-dl-cUY"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRc-NH-ubW">
-                                <rect key="frame" x="67" y="84" width="186" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="X3T-Sl-ds3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="rMd-YE-nJX" secondAttribute="trailing" constant="20" id="6Ul-M2-WAg"/>
-                            <constraint firstItem="oRc-NH-ubW" firstAttribute="top" secondItem="Lka-G2-2Ly" secondAttribute="bottom" constant="20" id="OQ9-6X-ARj"/>
-                            <constraint firstItem="rMd-YE-nJX" firstAttribute="leading" secondItem="Jqf-2f-y9w" secondAttribute="leading" constant="20" id="XJN-BI-CNR"/>
-                            <constraint firstItem="rMd-YE-nJX" firstAttribute="top" secondItem="oRc-NH-ubW" secondAttribute="bottom" constant="18" id="jon-tc-Vif"/>
-                            <constraint firstItem="oRc-NH-ubW" firstAttribute="centerX" secondItem="Jqf-2f-y9w" secondAttribute="centerX" id="lAl-eJ-qKz"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="pYG-9T-SQN">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="XuX-bY-hhZ">
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Tip Percentage" id="5cP-5r-n8c">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9Xx-3n-LFo">
+                                        <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Xx-3n-LFo" id="1Gi-nw-Yzt">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rMd-YE-nJX">
+                                                    <rect key="frame" x="109" y="8" width="203" height="29"/>
+                                                    <segments>
+                                                        <segment title="%"/>
+                                                        <segment title="%"/>
+                                                        <segment title="%"/>
+                                                    </segments>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="onDefaultTipValueChanged:" destination="8JS-X1-RKZ" eventType="valueChanged" id="gCV-37-SHn"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRc-NH-ubW">
+                                                    <rect key="frame" x="8" y="11" width="89" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="89" id="Lb9-zx-aeU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oRc-NH-ubW" firstAttribute="leading" secondItem="1Gi-nw-Yzt" secondAttribute="leading" constant="8" id="6G1-0t-Fnf"/>
+                                                <constraint firstItem="rMd-YE-nJX" firstAttribute="centerY" secondItem="1Gi-nw-Yzt" secondAttribute="centerY" id="6Xj-0q-AgM"/>
+                                                <constraint firstItem="oRc-NH-ubW" firstAttribute="centerY" secondItem="1Gi-nw-Yzt" secondAttribute="centerY" id="DLR-84-YHq"/>
+                                                <constraint firstAttribute="trailing" secondItem="rMd-YE-nJX" secondAttribute="trailing" constant="8" id="GAz-dF-kRX"/>
+                                                <constraint firstItem="rMd-YE-nJX" firstAttribute="leading" secondItem="oRc-NH-ubW" secondAttribute="trailing" constant="12" id="Kth-KN-lRl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Appearance" id="RzT-J6-ayb">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="II9-gf-ndu">
+                                        <rect key="frame" x="0.0" y="207.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="II9-gf-ndu" id="oPN-rM-ktI">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1iP-ab-067">
+                                                    <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="a64-Z0-R4l"/>
+                                                    </constraints>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex9-oR-teB">
+                                                    <rect key="frame" x="8" y="11" width="99" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="99" id="npJ-uK-BtB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ex9-oR-teB" firstAttribute="leading" secondItem="oPN-rM-ktI" secondAttribute="leading" constant="8" id="1vx-tX-Oeu"/>
+                                                <constraint firstAttribute="trailing" secondItem="1iP-ab-067" secondAttribute="trailing" constant="8" id="QUO-nK-DjI"/>
+                                                <constraint firstItem="1iP-ab-067" firstAttribute="centerY" secondItem="oPN-rM-ktI" secondAttribute="centerY" id="W6k-aY-lN2"/>
+                                                <constraint firstItem="Ex9-oR-teB" firstAttribute="centerY" secondItem="oPN-rM-ktI" secondAttribute="centerY" id="fif-Fq-X05"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="8JS-X1-RKZ" id="p2Z-gn-dVA"/>
+                            <outlet property="delegate" destination="8JS-X1-RKZ" id="l9V-Ut-LC7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="gPc-vV-CSj">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="ps3-G8-VC0">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="doneWithSettings:" destination="B0F-jV-06h" id="9z9-bv-O3I"/>
+                                <action selector="doneWithSettings:" destination="8JS-X1-RKZ" id="Y68-iD-geg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tipPercentSegmentedControl" destination="rMd-YE-nJX" id="vBg-Ro-N3j"/>
+                        <outlet property="tipPercentSegmentedControl" destination="rMd-YE-nJX" id="nz8-8c-DWv"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Y6-97-Lnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HyH-jz-dcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646" y="624"/>
+            <point key="canvasLocation" x="1670" y="624"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Je-WG-hIr">
@@ -234,22 +280,22 @@
             <point key="canvasLocation" x="347" y="624"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="6FH-yo-yrB">
+        <scene sceneID="VtZ-T9-aw8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BKy-jh-w6V" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iyW-5z-eAy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yQ8-70-p2A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q7R-eG-t9B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="B0F-jV-06h" kind="relationship" relationship="rootViewController" id="wSq-HF-qqA"/>
+                        <segue destination="8JS-X1-RKZ" kind="relationship" relationship="rootViewController" id="K7W-UI-LSV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YPF-xQ-z0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EW5-xY-Yxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1218" y="624"/>
+            <point key="canvasLocation" x="1231" y="624"/>
         </scene>
     </scenes>
     <resources>
