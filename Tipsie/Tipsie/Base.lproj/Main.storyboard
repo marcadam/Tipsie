@@ -129,7 +129,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Sto-dU-Zd7">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="F3j-1T-U6Y">
+                        <barButtonItem key="rightBarButtonItem" image="Settings" id="F3j-1T-U6Y">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="BKy-jh-w6V" kind="modal" id="MMs-lz-TF1"/>
@@ -252,4 +252,7 @@
             <point key="canvasLocation" x="1218" y="624"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Settings" width="20" height="20"/>
+    </resources>
 </document>
