@@ -18,6 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var tipPercentSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var perPersonLabel: UILabel!
+    @IBOutlet weak var tableHeaderView: UIView!
+
+    @IBOutlet weak var tableView: UITableView!
 
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
@@ -43,6 +47,7 @@ class ViewController: UIViewController {
         billAmountTextField.becomeFirstResponder()
 
         applyTheme()
+        tableView.reloadData()
 
         if Tips.getDefaultTipIndexChanged() {
             tipPercentSegmentedControl.selectedSegmentIndex = Tips.getDefaultTipIndex()
@@ -65,6 +70,7 @@ class ViewController: UIViewController {
             let totalAmount = billAmount + tipAmount
             tipAmountLabel.text = formatCurrency(tipAmount)
             totalAmountLabel.text = formatCurrency(totalAmount)
+            tableView.reloadData()
         }
     }
 
@@ -95,6 +101,10 @@ class ViewController: UIViewController {
         totalLabel.textColor = theme.textColor
         totalAmountLabel.textColor = theme.textColor
         tipPercentSegmentedControl.tintColor = theme.textColor
+        perPersonLabel.textColor = theme.textColor
+        tableHeaderView.backgroundColor = theme.textColor
+        tableView.backgroundColor = theme.backgroundColor
+        tableView.separatorColor = theme.textColor
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
@@ -104,6 +114,48 @@ class ViewController: UIViewController {
 
     @IBAction func onTap(sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+}
+
+// MARK: - Table view data source and delegate
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // The number of per person amounts to display.
+        return 14
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let theme = Theme.sharedInstance
+        let cell = tableView.dequeueReusableCellWithIdentifier("tipPerPersonCell") as! tipPerPersonCell
+
+        // indexPath.row starts at 0, but we want to start the table at 2 people
+        let numberOfPoeple = indexPath.row + 2
+        var amountPerPerson = 0.00
+
+        if let billAmountText = billAmountTextField.text {
+            amountPerPerson = (billAmountText as NSString).doubleValue / Double(numberOfPoeple)
+        }
+
+        cell.userProfileImage.tintColor = theme.textColor
+        cell.multiplyLabel.textColor = theme.textColor
+        cell.numberOfPeopleLabel.text = "\(numberOfPoeple)"
+        cell.numberOfPeopleLabel.textColor = theme.textColor
+        cell.totalAmountLabel.text = formatCurrency(amountPerPerson)
+        cell.totalAmountLabel.textColor = theme.textColor
+
+        return cell
+    }
+
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let theme = Theme.sharedInstance
+        cell.backgroundColor = theme.backgroundColor
+        cell.tintColor = theme.textColor
     }
 }
 
