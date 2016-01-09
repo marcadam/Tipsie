@@ -44,8 +44,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        billAmountTextField.becomeFirstResponder()
-
         applyTheme()
         tableView.reloadData()
 
@@ -54,11 +52,20 @@ class ViewController: UIViewController {
             Tips.setDefaultTipIndexChanged(false)
             updateLables()
         }
+
+        billAmountTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // This ensures that the UIKeyboardAppearance.Dark does not get in a weird
+        // state where the key colors change and numbers dissapear when the keys are
+        // pressed. Not sure if this is a bug in iOS or I am doing something wrong.
+        billAmountTextField.resignFirstResponder()
     }
 
     private func updateLables() {
