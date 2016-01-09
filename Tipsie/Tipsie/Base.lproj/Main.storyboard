@@ -58,10 +58,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05R-6w-N99">
-                                <rect key="frame" x="20" y="161" width="280" height="2"/>
+                                <rect key="frame" x="20" y="161" width="280" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="1vN-Lt-aX8"/>
+                                    <constraint firstAttribute="height" constant="1" id="1vN-Lt-aX8"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb2-Wy-YrP">
@@ -107,7 +107,7 @@
                             <constraint firstItem="aa6-ox-dfg" firstAttribute="leading" secondItem="XBa-sO-ukM" secondAttribute="trailing" constant="8" id="2ao-Vj-Nkb"/>
                             <constraint firstAttribute="trailing" secondItem="O6C-5t-XKo" secondAttribute="trailing" constant="20" id="2x2-4K-xoV"/>
                             <constraint firstItem="Pgg-rh-aYl" firstAttribute="top" secondItem="Uxx-La-u4L" secondAttribute="bottom" constant="21" id="3Lf-Yv-7ds"/>
-                            <constraint firstItem="o0T-fM-pRt" firstAttribute="top" secondItem="05R-6w-N99" secondAttribute="bottom" constant="12" id="BY1-m3-jdF"/>
+                            <constraint firstItem="o0T-fM-pRt" firstAttribute="top" secondItem="05R-6w-N99" secondAttribute="bottom" constant="13" id="BY1-m3-jdF"/>
                             <constraint firstAttribute="trailing" secondItem="aa6-ox-dfg" secondAttribute="trailing" constant="20" id="JRJ-x8-sae"/>
                             <constraint firstItem="xfg-ri-TX8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Nnw-Ha-RTT"/>
                             <constraint firstItem="xfg-ri-TX8" firstAttribute="top" secondItem="o0T-fM-pRt" secondAttribute="bottom" constant="12" id="OPv-PG-WDx"/>
@@ -122,7 +122,7 @@
                             <constraint firstAttribute="trailing" secondItem="o0T-fM-pRt" secondAttribute="trailing" constant="20" id="xxs-kQ-2Dd"/>
                             <constraint firstItem="XBa-sO-ukM" firstAttribute="top" secondItem="Pgg-rh-aYl" secondAttribute="bottom" constant="15" id="xyU-PR-eeY"/>
                             <constraint firstItem="05R-6w-N99" firstAttribute="top" secondItem="aa6-ox-dfg" secondAttribute="bottom" constant="13" id="yeq-Ue-JfT"/>
-                            <constraint firstItem="lb2-Wy-YrP" firstAttribute="top" secondItem="05R-6w-N99" secondAttribute="bottom" constant="12" id="zsh-Ud-XPF"/>
+                            <constraint firstItem="lb2-Wy-YrP" firstAttribute="top" secondItem="05R-6w-N99" secondAttribute="bottom" constant="13" id="zsh-Ud-XPF"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QSi-YC-WFb" appends="YES" id="Bou-XP-B4s"/>
