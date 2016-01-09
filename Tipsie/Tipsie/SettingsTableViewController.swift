@@ -55,12 +55,7 @@ class SettingsTableViewController: UITableViewController {
 
     private func setThemeSwitchState() {
         let theme = Theme.sharedInstance
-
-        if theme.getDefaultTheme() == .Dark {
-            themeSwitch.on = true
-        } else {
-            themeSwitch.on = false
-        }
+        themeSwitch.on = theme.getDefaultTheme() == .Dark ? true : false
     }
 
     @IBAction func doneWithSettings(sender: UIBarButtonItem) {
