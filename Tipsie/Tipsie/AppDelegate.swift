@@ -46,6 +46,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         saveCurrentBillAmount(billAmount)
     }
 
-
 }
 
