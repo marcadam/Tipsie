@@ -95,6 +95,11 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem?.tintColor = theme.textColor
         view.backgroundColor = theme.backgroundColor
         billLabel.textColor = theme.textColor
+        billAmountTextField.backgroundColor = theme.backgroundColor
+        billAmountTextField.textColor = theme.textColor
+        billAmountTextField.layer.borderColor = theme.textColor.CGColor
+        billAmountTextField.layer.borderWidth = 1
+        billAmountTextField.layer.cornerRadius = 4
         tipLabel.textColor = theme.textColor
         tipAmountLabel.textColor = theme.textColor
         horizontalDividerView.backgroundColor = theme.textColor

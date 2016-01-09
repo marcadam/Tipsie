@@ -14,11 +14,11 @@ class Theme {
         case Light, Dark
     }
 
-    private let darkBackgroundColor = UIColor.darkGrayColor()
-    private let darkTextColor = UIColor.whiteColor()
+    private let darkBackgroundColor = UIColor.themeDarkColor()
+    private let darkTextColor = UIColor.themeLightColor()
 
-    private let lightBackgroundColor = UIColor.lightGrayColor()
-    private let lightTextColor = UIColor.blackColor()
+    private let lightBackgroundColor = UIColor.themeLightColor()
+    private let lightTextColor = UIColor.themeDarkColor()
 
     var backgroundColor: UIColor
     var textColor: UIColor
@@ -55,5 +55,15 @@ class Theme {
             backgroundColor = darkBackgroundColor
             textColor = darkTextColor
         }
+    }
+}
+
+extension UIColor {
+    static func themeDarkColor() -> UIColor {
+        return UIColor(red: 10.0/255.0, green: 65.0/255.0, blue: 146.0/255.0, alpha: 1.0)
+    }
+
+    static func themeLightColor() -> UIColor {
+        return UIColor(red: 128.0/255.0, green: 168.0/255.0, blue: 228.0/255.0, alpha: 1.0)
     }
 }
