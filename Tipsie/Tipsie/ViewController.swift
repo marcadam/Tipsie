@@ -137,9 +137,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         // indexPath.row starts at 0, but we want to start the table at 2 people
         let numberOfPoeple = indexPath.row + 2
         var amountPerPerson = 0.00
+        let tipPercent = Tips.double[tipPercentSegmentedControl.selectedSegmentIndex]
 
         if let billAmountText = billAmountTextField.text {
-            amountPerPerson = (billAmountText as NSString).doubleValue / Double(numberOfPoeple)
+            let billAmount = (billAmountText as NSString).doubleValue
+            let tipAmount = billAmount * tipPercent
+            let totalAmount = billAmount + tipAmount
+            amountPerPerson = totalAmount / Double(numberOfPoeple)
         }
 
         cell.userProfileImage.tintColor = theme.textColor
