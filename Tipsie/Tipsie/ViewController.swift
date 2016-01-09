@@ -10,8 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+
+    @IBOutlet weak var billLabel: UILabel!
     @IBOutlet weak var billAmountTextField: UITextField!
+    @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var tipAmountLabel: UILabel!
+    @IBOutlet weak var horizontalDividerView: UIView!
+    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var tipPercentSegmentedControl: UISegmentedControl!
 
@@ -29,6 +34,8 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
 
         billAmountTextField.becomeFirstResponder()
+
+        applyTheme()
 
         if Tips.getDefaultTipIndexChanged() {
             tipPercentSegmentedControl.selectedSegmentIndex = Tips.getDefaultTipIndex()
@@ -64,6 +71,23 @@ class ViewController: UIViewController {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
         return formatter.stringFromNumber(number)!
+    }
+
+    private func applyTheme() {
+        let theme = Theme.sharedInstance
+        let navBar = navigationController?.navigationBar
+        navBar?.barTintColor = theme.backgroundColor
+        navBar?.tintColor = theme.textColor
+        navBar?.titleTextAttributes = [NSForegroundColorAttributeName: theme.textColor]
+        navigationItem.rightBarButtonItem?.tintColor = theme.textColor
+        view.backgroundColor = theme.backgroundColor
+        billLabel.textColor = theme.textColor
+        tipLabel.textColor = theme.textColor
+        tipAmountLabel.textColor = theme.textColor
+        horizontalDividerView.backgroundColor = theme.textColor
+        totalLabel.textColor = theme.textColor
+        totalAmountLabel.textColor = theme.textColor
+        tipPercentSegmentedControl.tintColor = theme.textColor
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {

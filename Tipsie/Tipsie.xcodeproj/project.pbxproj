@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		491AACD91C3FB60200FE82D9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AACD81C3FB60100FE82D9 /* SettingsTableViewController.swift */; };
+		4955FC5A1C4048B400503242 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955FC591C4048B400503242 /* Theme.swift */; };
 		49E4822A1C3EEAA60027A8D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E482291C3EEAA60027A8D4 /* AppDelegate.swift */; };
 		49E4822C1C3EEAA60027A8D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4822B1C3EEAA60027A8D4 /* ViewController.swift */; };
 		49E4822F1C3EEAA60027A8D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E4822D1C3EEAA60027A8D4 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		491AACD81C3FB60100FE82D9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		4955FC591C4048B400503242 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		49E482261C3EEAA60027A8D4 /* Tipsie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipsie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E482291C3EEAA60027A8D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E4822B1C3EEAA60027A8D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				491AACD81C3FB60100FE82D9 /* SettingsTableViewController.swift */,
 				49E4822D1C3EEAA60027A8D4 /* Main.storyboard */,
 				49E4823D1C3F37AA0027A8D4 /* Tips.swift */,
+				4955FC591C4048B400503242 /* Theme.swift */,
 				49E482301C3EEAA60027A8D4 /* Assets.xcassets */,
 				49E482321C3EEAA60027A8D4 /* LaunchScreen.storyboard */,
 				49E482351C3EEAA60027A8D4 /* Info.plist */,
@@ -144,6 +147,7 @@
 			files = (
 				49E4822C1C3EEAA60027A8D4 /* ViewController.swift in Sources */,
 				491AACD91C3FB60200FE82D9 /* SettingsTableViewController.swift in Sources */,
+				4955FC5A1C4048B400503242 /* Theme.swift in Sources */,
 				49E4822A1C3EEAA60027A8D4 /* AppDelegate.swift in Sources */,
 				49E4823E1C3F37AA0027A8D4 /* Tips.swift in Sources */,
 			);
