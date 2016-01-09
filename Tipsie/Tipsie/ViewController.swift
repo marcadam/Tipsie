@@ -100,6 +100,7 @@ class ViewController: UIViewController {
         billAmountTextField.layer.borderColor = theme.textColor.CGColor
         billAmountTextField.layer.borderWidth = 1
         billAmountTextField.layer.cornerRadius = 4
+        billAmountTextField.keyboardAppearance = theme.getDefaultTheme() == .Dark ? UIKeyboardAppearance.Dark : UIKeyboardAppearance.Light
         tipLabel.textColor = theme.textColor
         tipAmountLabel.textColor = theme.textColor
         horizontalDividerView.backgroundColor = theme.textColor
