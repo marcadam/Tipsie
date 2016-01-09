@@ -8,7 +8,7 @@
         <!--Tipsie-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tipsie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TipCalcView" id="BYZ-38-t0r" customClass="ViewController" customModule="Tipsie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uxx-La-u4L"/>
                         <viewControllerLayoutGuide type="bottom" id="Ymg-fJ-gIS"/>

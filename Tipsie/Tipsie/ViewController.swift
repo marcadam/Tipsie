@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
     @IBOutlet weak var billLabel: UILabel!
     @IBOutlet weak var billAmountTextField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
@@ -20,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var tipPercentSegmentedControl: UISegmentedControl!
 
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +29,12 @@ class ViewController: UIViewController {
         tipAmountLabel.text = formatCurrency(0.00)
         totalAmountLabel.text = formatCurrency(0.00)
         Tips.setTipControlText(tipPercentSegmentedControl)
+
+        // Restore saved bill amount if there is one.
+        if let billAmount = appDelegate.billAmount {
+            billAmountTextField.text = "\(billAmount)"
+            updateLables()
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -92,6 +99,7 @@ class ViewController: UIViewController {
 
     @IBAction func onEditingChanged(sender: AnyObject) {
         updateLables()
+        appDelegate.billAmount = billAmountTextField.text!
     }
 
     @IBAction func onTap(sender: UITapGestureRecognizer) {
