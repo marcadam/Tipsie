@@ -20,8 +20,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipPercentSegmentedControl: UISegmentedControl!
     @IBOutlet weak var perPersonLabel: UILabel!
     @IBOutlet weak var tableHeaderView: UIView!
-
     @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var billAmountConstraintTop: NSLayoutConstraint!
 
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
@@ -39,6 +40,8 @@ class ViewController: UIViewController {
             billAmountTextField.text = "\(billAmount)"
             updateLables()
         }
+
+        animateLayoutWithDuration(0.0)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -120,7 +123,27 @@ class ViewController: UIViewController {
         tableView.separatorColor = theme.textColor
     }
 
+    private func animateLayoutWithDuration(duration: Double) {
+        let biilAmountHasText = billAmountTextField.hasText()
+
+        self.billAmountConstraintTop.constant = biilAmountHasText ? 20.0 : 130.0
+
+        UIView.animateWithDuration(duration, animations: {
+            self.tipLabel.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.tipAmountLabel.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.horizontalDividerView.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.totalLabel.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.totalAmountLabel.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.tipPercentSegmentedControl.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.perPersonLabel.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.tableHeaderView.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.tableView.alpha = biilAmountHasText ? 1.0 : 0.0
+            self.view.layoutIfNeeded()
+        })
+    }
+
     @IBAction func onEditingChanged(sender: AnyObject) {
+        animateLayoutWithDuration(0.8)
         updateLables()
         appDelegate.billAmount = billAmountTextField.text!
     }

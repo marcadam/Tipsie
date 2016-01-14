@@ -17,18 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgg-rh-aYl">
-                                <rect key="frame" x="20" y="85" width="112" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="DlF-S3-Qhq"/>
-                                    <constraint firstAttribute="width" constant="112" id="p7b-Sr-ouC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O6C-5t-XKo">
-                                <rect key="frame" x="140" y="84" width="160" height="30"/>
+                                <rect key="frame" x="69" y="84" width="231" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="mxQ-r2-2YV"/>
                                 </constraints>
@@ -188,16 +178,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cw6-Xl-PZ4"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgg-rh-aYl">
+                                <rect key="frame" x="20" y="85" width="29" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="DlF-S3-Qhq"/>
+                                    <constraint firstAttribute="width" constant="29" id="p7b-Sr-ouC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="O6C-5t-XKo" firstAttribute="leading" secondItem="Pgg-rh-aYl" secondAttribute="trailing" constant="8" id="02D-KC-uhA"/>
+                            <constraint firstItem="O6C-5t-XKo" firstAttribute="leading" secondItem="Pgg-rh-aYl" secondAttribute="trailing" constant="20" id="02D-KC-uhA"/>
                             <constraint firstAttribute="trailing" secondItem="qYK-Gg-RzK" secondAttribute="trailing" constant="20" id="0pw-VO-g1e"/>
                             <constraint firstItem="O6C-5t-XKo" firstAttribute="top" secondItem="Uxx-La-u4L" secondAttribute="bottom" constant="20" id="2a6-2p-fOP"/>
                             <constraint firstItem="aa6-ox-dfg" firstAttribute="leading" secondItem="XBa-sO-ukM" secondAttribute="trailing" constant="8" id="2ao-Vj-Nkb"/>
                             <constraint firstAttribute="trailing" secondItem="O6C-5t-XKo" secondAttribute="trailing" constant="20" id="2x2-4K-xoV"/>
-                            <constraint firstItem="Pgg-rh-aYl" firstAttribute="top" secondItem="Uxx-La-u4L" secondAttribute="bottom" constant="21" id="3Lf-Yv-7ds"/>
                             <constraint firstItem="Ymg-fJ-gIS" firstAttribute="top" secondItem="JOO-X8-EqD" secondAttribute="bottom" id="75D-EU-jFS"/>
                             <constraint firstItem="qYK-Gg-RzK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="7gj-gD-aLS"/>
                             <constraint firstItem="o0T-fM-pRt" firstAttribute="top" secondItem="05R-6w-N99" secondAttribute="bottom" constant="13" id="BY1-m3-jdF"/>
@@ -210,6 +209,7 @@
                             <constraint firstItem="XBa-sO-ukM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="WCi-bD-Rs6"/>
                             <constraint firstItem="o0T-fM-pRt" firstAttribute="leading" secondItem="lb2-Wy-YrP" secondAttribute="trailing" constant="8" id="ZEc-gr-CL0"/>
                             <constraint firstItem="mSv-w4-At8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="a1d-8f-35i"/>
+                            <constraint firstItem="Pgg-rh-aYl" firstAttribute="centerY" secondItem="O6C-5t-XKo" secondAttribute="centerY" id="bFs-Oj-j2U"/>
                             <constraint firstItem="05R-6w-N99" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="iKV-5i-DUs"/>
                             <constraint firstAttribute="trailing" secondItem="xfg-ri-TX8" secondAttribute="trailing" constant="20" id="lcd-Gd-PUl"/>
                             <constraint firstItem="Pgg-rh-aYl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="nsY-Qj-Vja"/>
@@ -238,6 +238,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="billAmountConstraintTop" destination="2a6-2p-fOP" id="sKY-6l-pAJ"/>
                         <outlet property="billAmountTextField" destination="O6C-5t-XKo" id="gR3-oD-57F"/>
                         <outlet property="billLabel" destination="Pgg-rh-aYl" id="Z45-1P-dZP"/>
                         <outlet property="horizontalDividerView" destination="05R-6w-N99" id="t0P-wM-ZQG"/>
