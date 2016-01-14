@@ -50,6 +50,8 @@ class SettingsTableViewController: UITableViewController {
         defaultTipLabel.textColor = theme.textColor
         tipPercentSegmentedControl.tintColor = theme.textColor
         darkThemeLabel.textColor = theme.textColor
+        themeSwitch.thumbTintColor = theme.textColor
+        themeSwitch.tintColor = theme.textColor
         tableView.separatorColor = theme.textColor
     }
 

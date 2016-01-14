@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var billLabel: UILabel!
     @IBOutlet weak var billAmountTextField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var tipAmountLabel: UILabel!
@@ -68,6 +67,7 @@ class ViewController: UIViewController {
         // This ensures that the UIKeyboardAppearance.Dark does not get in a weird
         // state where the key colors change and numbers dissapear when the keys are
         // pressed. Not sure if this is a bug in iOS or I am doing something wrong.
+        print(billAmountTextField.frame)
         billAmountTextField.resignFirstResponder()
     }
 
@@ -104,11 +104,7 @@ class ViewController: UIViewController {
         navBar?.titleTextAttributes = [NSForegroundColorAttributeName: theme.textColor]
         navigationItem.rightBarButtonItem?.tintColor = theme.textColor
         view.backgroundColor = theme.backgroundColor
-        billLabel.textColor = theme.textColor
-        billAmountTextField.backgroundColor = theme.backgroundColor
-        billAmountTextField.textColor = theme.textColor
-        billAmountTextField.layer.borderColor = theme.textColor.CGColor
-        billAmountTextField.layer.borderWidth = 1
+        billAmountTextField.textColor = theme.getDefaultTheme() == .Dark ? theme.backgroundColor : theme.textColor
         billAmountTextField.layer.cornerRadius = 4
         billAmountTextField.keyboardAppearance = theme.getDefaultTheme() == .Dark ? UIKeyboardAppearance.Dark : UIKeyboardAppearance.Light
         tipLabel.textColor = theme.textColor
@@ -126,7 +122,7 @@ class ViewController: UIViewController {
     private func animateLayoutWithDuration(duration: Double) {
         let biilAmountHasText = billAmountTextField.hasText()
 
-        self.billAmountConstraintTop.constant = biilAmountHasText ? 20.0 : 130.0
+        self.billAmountConstraintTop.constant = biilAmountHasText ? 13.0 : 130.0
 
         UIView.animateWithDuration(duration, animations: {
             self.tipLabel.alpha = biilAmountHasText ? 1.0 : 0.0
