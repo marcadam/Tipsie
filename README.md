@@ -21,15 +21,15 @@ Time spent: 23 hours
 
 ### Notes:
 
-When dealing with currency it is preferred to use NSDecimalNumber, but I am just using Doubles and string formatting (likely okay given the limited functionality).
+When dealing with currency it is preferred to use `NSDecimalNumber`, but I am just using `Double`s and string formatting (likely okay given the limited functionality).
 
-I abstracted much of the tip functionality out into a Tips struct. One of the benefits is that the tip percentages and tip display values can easily be changed throughout the app from one place.
+I abstracted much of the tip functionality out into a Tips `struct`. One of the benefits is that the tip percentages and tip display values can easily be changed throughout the app from one place.
 
 I abstracted out the theme functionality which makes it easy to change the colors of the themes. Currently the app has two themes, but you could add additional themes with minimal work.
 
-The Xcode files are in the Tipsie directory.
+The Xcode files are in the `Tipsie` directory.
 
-I've included the Sketch.app files I created when tweaking the design. Those are in the Design directory.
+I've included the Sketch.app files I created when tweaking the design. Those are in the `Design` directory.
 
 No third-party libraries used.
 
