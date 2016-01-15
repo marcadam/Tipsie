@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         tipAmountLabel.text = formatCurrency(0.00)
         totalAmountLabel.text = formatCurrency(0.00)
         Tips.setTipControlText(tipPercentSegmentedControl)
+        tipPercentSegmentedControl.selectedSegmentIndex = Tips.getDefaultTipIndex()
 
         // Restore saved bill amount if there is one.
         if let billAmount = appDelegate.billAmount {
@@ -67,7 +68,6 @@ class ViewController: UIViewController {
         // This ensures that the UIKeyboardAppearance.Dark does not get in a weird
         // state where the key colors change and numbers dissapear when the keys are
         // pressed. Not sure if this is a bug in iOS or I am doing something wrong.
-        print(billAmountTextField.frame)
         billAmountTextField.resignFirstResponder()
     }
 
