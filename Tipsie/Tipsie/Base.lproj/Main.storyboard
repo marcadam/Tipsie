@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3cF-DM-8P8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3cF-DM-8P8">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Tipsie-->
@@ -68,6 +68,8 @@
                                     <constraint firstAttribute="height" constant="28" id="pJ1-zO-3f5"/>
                                 </constraints>
                                 <segments>
+                                    <segment title="%"/>
+                                    <segment title="%"/>
                                     <segment title="%"/>
                                     <segment title="%"/>
                                     <segment title="%"/>
@@ -270,6 +272,8 @@
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rMd-YE-nJX">
                                                     <rect key="frame" x="109" y="8" width="203" height="29"/>
                                                     <segments>
+                                                        <segment title="%"/>
+                                                        <segment title="%"/>
                                                         <segment title="%"/>
                                                         <segment title="%"/>
                                                         <segment title="%"/>

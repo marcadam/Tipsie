@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 struct Tips {
-    static let double = [0.18,   0.20,  0.22]
-    static let string = ["18%", "20%", "22%"]
+    static let double = [0.15,  0.18,  0.20,  0.23,  0.25]
+    static let string = ["15%", "18%", "20%", "23%", "25%"]
 
     static let defaultTipIndexKey = "DefaultTipIndex"
     static let defaultTipIndexChangedKey = "DefaultTipIndexChanged"
