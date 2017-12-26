@@ -101,7 +101,7 @@ class ViewController: UIViewController {
         let navBar = navigationController?.navigationBar
         navBar?.barTintColor = theme.backgroundColor
         navBar?.tintColor = theme.textColor
-        navBar?.titleTextAttributes = [NSForegroundColorAttributeName: theme.textColor]
+        navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
         navigationItem.rightBarButtonItem?.tintColor = theme.textColor
         view.backgroundColor = theme.backgroundColor
         billAmountTextField.textColor = theme.getDefaultTheme() == .dark ? theme.backgroundColor : theme.textColor

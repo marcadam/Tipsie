@@ -112,7 +112,7 @@
 					49E482251C3EEAA60027A8D4 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = T4M4V8VG4B;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 					};
 				};
 			};
@@ -293,7 +293,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcadam.Tipsie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -309,7 +310,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcadam.Tipsie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
