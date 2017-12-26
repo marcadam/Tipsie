@@ -11,19 +11,19 @@ import UIKit
 
 class Theme {
     enum Name: Int {
-        case Light, Dark
+        case light, dark
     }
 
-    private let darkBackgroundColor = UIColor.themeDarkBackgroundColor()
-    private let darkTextColor = UIColor.themeDarkTextColor()
+    fileprivate let darkBackgroundColor = UIColor.themeDarkBackgroundColor()
+    fileprivate let darkTextColor = UIColor.themeDarkTextColor()
 
-    private let lightBackgroundColor = UIColor.themeLightBackgroundColor()
-    private let lightTextColor = UIColor.themeLightTextColor()
+    fileprivate let lightBackgroundColor = UIColor.themeLightBackgroundColor()
+    fileprivate let lightTextColor = UIColor.themeLightTextColor()
 
     var backgroundColor: UIColor
     var textColor: UIColor
 
-    private let defaultThemeKey = "DefaultTheme"
+    fileprivate let defaultThemeKey = "DefaultTheme"
 
     static let sharedInstance = Theme()
 
@@ -34,21 +34,21 @@ class Theme {
         updateColors(getDefaultTheme())
     }
 
-    func setDefaultTheme(theme: Theme.Name) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(theme.rawValue, forKey: defaultThemeKey)
+    func setDefaultTheme(_ theme: Theme.Name) {
+        let defaults = UserDefaults.standard
+        defaults.set(theme.rawValue, forKey: defaultThemeKey)
         defaults.synchronize()
 
         updateColors(theme)
     }
 
     func getDefaultTheme() -> Theme.Name {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        return Theme.Name(rawValue: defaults.integerForKey(defaultThemeKey))!
+        let defaults = UserDefaults.standard
+        return Theme.Name(rawValue: defaults.integer(forKey: defaultThemeKey))!
     }
 
-    private func updateColors(theme: Theme.Name) {
-        if theme == .Light {
+    fileprivate func updateColors(_ theme: Theme.Name) {
+        if theme == .light {
             backgroundColor = lightBackgroundColor
             textColor = lightTextColor
         } else {
@@ -66,7 +66,7 @@ extension UIColor {
     }
 
     static func themeDarkTextColor() -> UIColor {
-        return UIColor.whiteColor()
+        return UIColor.white
     }
 
     static func themeLightBackgroundColor() -> UIColor {

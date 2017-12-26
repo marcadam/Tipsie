@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var billAmountConstraintTop: NSLayoutConstraint!
 
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         animateLayoutWithDuration(0.0)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         applyTheme()
@@ -64,14 +64,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // This ensures that the UIKeyboardAppearance.Dark does not get in a weird
         // state where the key colors change and numbers dissapear when the keys are
         // pressed. Not sure if this is a bug in iOS or I am doing something wrong.
         billAmountTextField.resignFirstResponder()
     }
 
-    private func updateLables() {
+    fileprivate func updateLables() {
         let tipPercent = Tips.double[tipPercentSegmentedControl.selectedSegmentIndex]
 
         if let billAmountText = billAmountTextField.text {
@@ -84,19 +84,19 @@ class ViewController: UIViewController {
         }
     }
 
-    private func getCurrencySymbol() -> String {
-        let local = NSLocale.currentLocale()
-        let currencySymbol = (local.objectForKey(NSLocaleCurrencySymbol) as! String)
+    fileprivate func getCurrencySymbol() -> String {
+        let local = Locale.current
+        let currencySymbol = ((local as NSLocale).object(forKey: NSLocale.Key.currencySymbol) as! String)
         return currencySymbol
     }
 
-    private func formatCurrency(number: Double) -> String {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        return formatter.stringFromNumber(number)!
+    fileprivate func formatCurrency(_ number: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter.string(from: NSNumber(value: number))!
     }
 
-    private func applyTheme() {
+    fileprivate func applyTheme() {
         let theme = Theme.sharedInstance
         let navBar = navigationController?.navigationBar
         navBar?.barTintColor = theme.backgroundColor
@@ -104,9 +104,9 @@ class ViewController: UIViewController {
         navBar?.titleTextAttributes = [NSForegroundColorAttributeName: theme.textColor]
         navigationItem.rightBarButtonItem?.tintColor = theme.textColor
         view.backgroundColor = theme.backgroundColor
-        billAmountTextField.textColor = theme.getDefaultTheme() == .Dark ? theme.backgroundColor : theme.textColor
+        billAmountTextField.textColor = theme.getDefaultTheme() == .dark ? theme.backgroundColor : theme.textColor
         billAmountTextField.layer.cornerRadius = 4
-        billAmountTextField.keyboardAppearance = theme.getDefaultTheme() == .Dark ? UIKeyboardAppearance.Dark : UIKeyboardAppearance.Light
+        billAmountTextField.keyboardAppearance = theme.getDefaultTheme() == .dark ? UIKeyboardAppearance.dark : UIKeyboardAppearance.light
         tipLabel.textColor = theme.textColor
         tipAmountLabel.textColor = theme.textColor
         horizontalDividerView.backgroundColor = theme.textColor
@@ -119,12 +119,12 @@ class ViewController: UIViewController {
         tableView.separatorColor = theme.textColor
     }
 
-    private func animateLayoutWithDuration(duration: Double) {
-        let biilAmountHasText = billAmountTextField.hasText()
+    fileprivate func animateLayoutWithDuration(_ duration: Double) {
+        let biilAmountHasText = billAmountTextField.hasText
 
         self.billAmountConstraintTop.constant = biilAmountHasText ? 13.0 : 130.0
 
-        UIView.animateWithDuration(duration, animations: {
+        UIView.animate(withDuration: duration, animations: {
             self.tipLabel.alpha = biilAmountHasText ? 1.0 : 0.0
             self.tipAmountLabel.alpha = biilAmountHasText ? 1.0 : 0.0
             self.horizontalDividerView.alpha = biilAmountHasText ? 1.0 : 0.0
@@ -138,13 +138,13 @@ class ViewController: UIViewController {
         })
     }
 
-    @IBAction func onEditingChanged(sender: AnyObject) {
+    @IBAction func onEditingChanged(_ sender: AnyObject) {
         animateLayoutWithDuration(0.8)
         updateLables()
         appDelegate.billAmount = billAmountTextField.text!
     }
 
-    @IBAction func onTap(sender: UITapGestureRecognizer) {
+    @IBAction func onTap(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
 }
@@ -153,18 +153,18 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // The number of per person amounts to display.
         return 19
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let theme = Theme.sharedInstance
-        let cell = tableView.dequeueReusableCellWithIdentifier("tipPerPersonCell") as! tipPerPersonCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tipPerPersonCell") as! tipPerPersonCell
 
         // indexPath.row starts at 0, but we want to start the table at 2 people
         let numberOfPoeple = indexPath.row + 2
@@ -188,7 +188,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let theme = Theme.sharedInstance
         cell.backgroundColor = theme.backgroundColor
         cell.tintColor = theme.textColor

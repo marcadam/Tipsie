@@ -28,7 +28,7 @@ class SettingsTableViewController: UITableViewController {
         setThemeSwitchState()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyTheme()
         tipPercentSegmentedControl.selectedSegmentIndex = Tips.getDefaultTipIndex()
@@ -39,7 +39,7 @@ class SettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    private func applyTheme() {
+    fileprivate func applyTheme() {
         let theme = Theme.sharedInstance
         let navBar = navigationController?.navigationBar
         navBar?.barTintColor = theme.backgroundColor
@@ -55,26 +55,26 @@ class SettingsTableViewController: UITableViewController {
         tableView.separatorColor = theme.textColor
     }
 
-    private func setThemeSwitchState() {
+    fileprivate func setThemeSwitchState() {
         let theme = Theme.sharedInstance
-        themeSwitch.on = theme.getDefaultTheme() == .Dark ? true : false
+        themeSwitch.isOn = theme.getDefaultTheme() == .dark ? true : false
     }
 
-    @IBAction func doneWithSettings(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneWithSettings(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func onDefaultTipValueChanged(sender: UISegmentedControl) {
+    @IBAction func onDefaultTipValueChanged(_ sender: UISegmentedControl) {
         Tips.setDefaultTipIndex(tipPercentSegmentedControl.selectedSegmentIndex)
     }
 
-    @IBAction func onSwitchChange(sender: UISwitch) {
+    @IBAction func onSwitchChange(_ sender: UISwitch) {
         let theme = Theme.sharedInstance
 
-        if sender.on {
-            theme.setDefaultTheme(.Dark)
+        if sender.isOn {
+            theme.setDefaultTheme(.dark)
         } else {
-            theme.setDefaultTheme(.Light)
+            theme.setDefaultTheme(.light)
         }
 
         applyTheme()
@@ -83,23 +83,23 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
 
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let theme = Theme.sharedInstance
         cell.backgroundColor = theme.backgroundColor
         cell.tintColor = theme.textColor
     }
 
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let theme = Theme.sharedInstance
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.contentView.backgroundColor = theme.backgroundColor

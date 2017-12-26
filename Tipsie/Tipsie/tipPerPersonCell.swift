@@ -20,11 +20,11 @@ class tipPerPersonCell: UITableViewCell {
 
         // This allows us to dynamically change the color of the user profile image to match theme.
         var image = UIImage(named: "UserProfile")!
-        image = image.imageWithRenderingMode(.AlwaysTemplate)
+        image = image.withRenderingMode(.alwaysTemplate)
         userProfileImage.image = image
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

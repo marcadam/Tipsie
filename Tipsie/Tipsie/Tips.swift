@@ -16,32 +16,32 @@ struct Tips {
     static let defaultTipIndexKey = "DefaultTipIndex"
     static let defaultTipIndexChangedKey = "DefaultTipIndexChanged"
 
-    static func setTipControlText(control: UISegmentedControl) {
-        for (index, tipText) in Tips.string.enumerate() {
-            control.setTitle(tipText, forSegmentAtIndex: index)
+    static func setTipControlText(_ control: UISegmentedControl) {
+        for (index, tipText) in Tips.string.enumerated() {
+            control.setTitle(tipText, forSegmentAt: index)
         }
     }
 
-    static func setDefaultTipIndex(defaultTipIndex: Int) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(defaultTipIndex, forKey: defaultTipIndexKey)
+    static func setDefaultTipIndex(_ defaultTipIndex: Int) {
+        let defaults = UserDefaults.standard
+        defaults.set(defaultTipIndex, forKey: defaultTipIndexKey)
         Tips.setDefaultTipIndexChanged(true)
         defaults.synchronize()
     }
 
     static func getDefaultTipIndex() -> Int {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.integerForKey(defaultTipIndexKey)
+        let defaults = UserDefaults.standard
+        return defaults.integer(forKey: defaultTipIndexKey)
     }
 
-    static func setDefaultTipIndexChanged(changed: Bool) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(changed, forKey: defaultTipIndexChangedKey)
+    static func setDefaultTipIndexChanged(_ changed: Bool) {
+        let defaults = UserDefaults.standard
+        defaults.set(changed, forKey: defaultTipIndexChangedKey)
         defaults.synchronize()
     }
 
     static func getDefaultTipIndexChanged() -> Bool {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.boolForKey(defaultTipIndexChangedKey)
+        let defaults = UserDefaults.standard
+        return defaults.bool(forKey: defaultTipIndexChangedKey)
     }
 }

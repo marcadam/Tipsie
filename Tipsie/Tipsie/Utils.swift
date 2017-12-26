@@ -11,19 +11,19 @@ import Foundation
 let billAmountKey = "BillAmount"
 let billAmountSaveTimeKey = "BillAmountSaveTime"
 
-func saveCurrentBillAmount(billAmount: String?) {
+func saveCurrentBillAmount(_ billAmount: String?) {
     if let billAmount = billAmount {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(billAmount, forKey: billAmountKey)
-        defaults.setObject(NSDate(), forKey: billAmountSaveTimeKey)
+        let defaults = UserDefaults.standard
+        defaults.set(billAmount, forKey: billAmountKey)
+        defaults.set(Date(), forKey: billAmountSaveTimeKey)
         defaults.synchronize()
     }
 }
 
 func getPreviousBillAmount() -> String? {
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
 
-    if let billAmount = defaults.stringForKey(billAmountKey), savedBillAmountSaveTime = (defaults.objectForKey(billAmountSaveTimeKey) as? NSDate) {
+    if let billAmount = defaults.string(forKey: billAmountKey), let savedBillAmountSaveTime = (defaults.object(forKey: billAmountSaveTimeKey) as? Date) {
         let deltaTime = abs(savedBillAmountSaveTime.timeIntervalSinceNow)
         let maxSeconds = 60.0 * 5
 
